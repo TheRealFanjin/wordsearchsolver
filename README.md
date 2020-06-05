@@ -1,2 +1,2 @@
-# wordsearchsolver
-A word solver that solves your annoying word search homework
+# Word Search Solver
+A word search solver that solves your annoying word search homework
