@@ -17,7 +17,7 @@ def checkHorizontal():
                 indexPos[0] = row.index(word)
                 indexPos[1] = counter
             except ValueError:
-                indexPos[0] = row.index(word[::-1])
+                indexPos[0] = row.index(word[::-1]) + (len(word) - 1)
                 indexPos[1] = counter
         except ValueError:
             continue
