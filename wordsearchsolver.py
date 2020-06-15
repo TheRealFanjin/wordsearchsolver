@@ -17,41 +17,37 @@ def checkHorizontal():
     for counter, row in enumerate(listOfRows):
         try:
             try:
-                indexPos[0] = counter
-                indexPos[1] = row.index(word)
+                indexPos[0] = counter + 1
+                indexPos[1] = row.index(word) + 1
+                print("'" + word + "'", 'found at', indexPos, 'going right')
             except ValueError:
-                indexPos[0] = counter
-                indexPos[1] = row.index(word[::-1]) + (len(word) - 2)
+                indexPos[0] = counter + 1
+                indexPos[1] = row.index(word[::-1]) + (len(word)) + 1
+                print("'" + word + "'", 'found at', indexPos, 'going left')
         except ValueError:
             continue
-    if all(indexPos):  # checks if indexPos has None in it
-        print(indexPos)
 
 
 def checkVertical():
     iterate = list(zip(*listOfLetters))
-    verticalListOfLetters = []
-    for item in iterate:
-        verticalListOfLetters.append(''.join(item))
+    verticalListOfLetters = [''.join(item) for item in iterate]
     indexPos = [None] * 2
     for counter, row in enumerate(verticalListOfLetters):
         try:
             try:
-                indexPos[0] = row.index(word)
-                indexPos[1] = counter
+                indexPos[0] = row.index(word) + 1
+                indexPos[1] = counter + 1
+                print("'" + word + "'", 'found at', indexPos, 'going down')
             except ValueError:
-                indexPos[0] = row.index(word[::-1]) + (len(word) - 2)
-                indexPos[1] = counter
+                indexPos[0] = row.index(word[::-1]) + (len(word)) + 1
+                indexPos[1] = counter + 1
+                print("'" + word + "'", 'found at', indexPos, 'going up')
         except ValueError:
             continue
-    if all(indexPos):
-        print(indexPos)
-
-
-
 
 
 while True:
     word = input('Type the word you want to find: ')
     checkHorizontal()
     checkVertical()
+
